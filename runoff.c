@@ -88,8 +88,6 @@ int main(int argc, string argv[])
     {
         // Calculate votes given remaining candidates
         tabulate();
-	for(int y = 0; y < candidate_count; y++)
-		printf("%s: %d\n",candidates[y].name,candidates[y].votes);
         // Check if election has been won
         bool won = print_winner();
         if (won)
@@ -203,10 +201,11 @@ bool is_tie(int min)
 // Eliminate the candidate (or candidiates) in last place
 void eliminate(int min)
 {
-    for(int x = 0; x < candidate_count; x++){
-	if(candidates[x].votes == min){
+    for(int x = 0; x < candidate_count; x++)
+    {
+	if(candidates[x].votes == min)
+	{
 		candidates[x].eliminated = true;
-		printf("canndidate %d has been eliminated\n",x);
 	}
     }
     return;
